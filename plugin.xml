@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<plugin xmlns="http://www.phonegap.com/ns/plugins/1.0"
+        id="com.zahiralam.calllisten"
+        version="0.7.0">
+
+  <name>CallListen</name>
+
+  <engines>
+    <engine name="cordova" version=">=3.4.0"/>
+  </engines>
+
+  <asset src="www/calllisten.js" target="js/calllisten.js"/>
+
+  <js-module src="www/calllisten.js" name="calllisten">
+    <clobbers target="window.plugins.calllisten" />
+  </js-module>
+
+  <platform name="android">
+
+    <config-file target="res/xml/config.xml" parent="/*">
+      <feature name="Calllisten">
+        <param name="android-package" value="com.zahiralam.calllisten.Calllisten"/>
+      </feature>
+    </config-file>
+    
+    <config-file target="AndroidManifest.xml" parent="/manifest">
+		<uses-permission android:name="android.permission.READ_PHONE_STATE" />
+	</config-file>
+
+    <source-file src="src/android/Calllisten.java" target-dir="src/com/zahiralam/calllisten/"/>
+  </platform>
+
+</plugin>
